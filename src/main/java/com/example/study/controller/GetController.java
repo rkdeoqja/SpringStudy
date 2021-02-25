@@ -3,11 +3,12 @@ package com.example.study.controller;
 import com.example.study.model.SearchParam;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api")
+@RestController                                     //컨트롤러로 사용한다는 어노테이션
+@RequestMapping("/api")                //어떤 주소로 받을건지 path를 지정 localhost:8080/api
 public class GetController {
 
-    @RequestMapping(method = RequestMethod.GET,path = "/getMethod")
+    @RequestMapping(method = RequestMethod.GET,path = "/getMethod")     //method를 get type으로받고 path는 getMethod
+    //localhost:8080/api/getMethod
     public String getRequest(){
 
         return "Hi getMethod";
@@ -19,18 +20,18 @@ public class GetController {
         System.out.println("id: "+id);
         System.out.println("pwd: "+pwd);
 
-        return id+pwd;
+        return "id: "+id+",pwd: "+pwd;
     }
 
-    //localhost:8080/api/multiParameter?account=abcd&email=study@gmail.com&page=10
+    //localhost:8080/api/getMultiParameter?account=abcd&email=study@gmail.com&page=10
     @GetMapping("/getMultiParameter")
     public SearchParam getMultiParameter(SearchParam searchParam){
         System.out.println(searchParam.getAccount());
         System.out.println(searchParam.getEmail());
         System.out.println(searchParam.getPage());
 
-        //{"account":"", "email":"","page":0}
-        return searchParam;
+        //json형식 {"account":"", "email":"","page":0}
+        return searchParam;//spring Boot에서는 jackson라이브러리를 이용하여  json으로 자동변환되어 리턴된다
     }
 
 }
