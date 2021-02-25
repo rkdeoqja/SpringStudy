@@ -1,0 +1,10 @@
+- 스프링부트 프로젝트의 추가된 라이브러리들의 설정들을 관리하는곳
+path: resources -> application.properties
+- 추가된 compile을 명시해주는곳
+path: build.gradle{dependencies}
+        -MySql
+        compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+        compile('mysql:mysql-connector-java')
+        -lombok
+        compile 'org.projectlombok:lombok:1.18.10'
+        annotationProcessor 'org.projectlombok:lombok:1.18.10'

@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController                                     //컨트롤러로 사용한다는 어노테이션
 @RequestMapping("/api")                //어떤 주소로 받을건지 path를 지정 localhost:8080/api
 public class GetController {
-
-    @RequestMapping(method = RequestMethod.GET,path = "/getMethod")     //method를 get type으로받고 path는 getMethod
     //localhost:8080/api/getMethod
+    @RequestMapping(method = RequestMethod.GET,path = "/getMethod")     //method를 get type으로받고 path는 getMethod
     public String getRequest(){
 
         return "Hi getMethod";
@@ -20,7 +19,7 @@ public class GetController {
         System.out.println("id: "+id);
         System.out.println("pwd: "+pwd);
 
-        return "id: "+id+",pwd: "+pwd;
+        return id+pwd;
     }
 
     //localhost:8080/api/getMultiParameter?account=abcd&email=study@gmail.com&page=10
