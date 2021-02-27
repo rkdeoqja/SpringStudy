@@ -2,6 +2,7 @@ package com.example.study.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
     @Id
@@ -31,7 +33,4 @@ public class User {
     private String updatedBy;
 
 
-    public User() {
-
-    }
 }
