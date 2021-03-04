@@ -37,22 +37,22 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
     @Test
     @Transactional
-      public void read(){
-  //  public User read(@RequestParam Long id){
+    public void read(){
+        //  public User read(@RequestParam Long id){
         //Optional<User> user = userRepository.findById(id);
-        Optional<User> user = userRepository.findById(4L);
+
+        //Select * From user where id = ?
+        Optional<User> user = userRepository.findByAccount("TestUser02");
 
         user.ifPresent(selectUser->{
-           // System.out.println("user: "+selectUser);
-           // System.out.println("email: "+selectUser.getEmail());
+            // System.out.println("user: "+selectUser);
+            // System.out.println("email: "+selectUser.getEmail());
             selectUser.getOrderDetailList().stream().forEach(detail -> {
                 Item item = detail.getItem();
                 System.out.println(item);
             });
         });
-
-      //  return user.get();
-
+        //  return user.get();
     }
 
     @Test
@@ -63,7 +63,6 @@ public class UserRepositoryTest extends StudyApplicationTests {
             selectUser.setAccount("PPPP");
             selectUser.setUpdatedAt(LocalDateTime.now());
             selectUser.setUpdatedBy("update method()");
-
             userRepository.save(selectUser);
         });
     }
@@ -85,7 +84,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
 
         Assertions.assertFalse(deleteUser.isPresent()); //false
 
-      /*  if(deleteUser.isPresent()){
+        /*if(deleteUser.isPresent()){
             System.out.println("데이터 존재: "+deleteUser);
         }else{
             System.out.println("데이터 삭제 데이터 없음");
