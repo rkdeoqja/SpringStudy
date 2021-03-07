@@ -29,7 +29,7 @@ public class User {
 
     private LocalDateTime registeredAt;
 
-    private LocalDateTime unregisteredBy;
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 

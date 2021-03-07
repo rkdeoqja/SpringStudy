@@ -35,7 +35,7 @@ public class Item {
 
     private LocalDateTime createdAt;
 
-    private String createBy;
+    private String createdBy;
 
     private LocalDateTime updatedAt;
 
