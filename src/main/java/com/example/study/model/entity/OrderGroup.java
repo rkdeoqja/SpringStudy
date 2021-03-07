@@ -48,4 +48,9 @@ public class OrderGroup {
     private String updatedBy;
 
 
+//    OrderGroup N : 1 User
+    
+    private Long userId;
+
+
 }

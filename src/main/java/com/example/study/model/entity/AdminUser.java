@@ -31,13 +31,13 @@ public class AdminUser {
 
     private LocalDateTime lastLoginAt;
 
-    private LocalDateTime passwordUpdateAt;
+    private LocalDateTime passwordUpdatedAt;
 
     private int loginFailCount;
 
     private LocalDateTime registeredAt;
 
-    private LocalDateTime unregisteredBy;
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
