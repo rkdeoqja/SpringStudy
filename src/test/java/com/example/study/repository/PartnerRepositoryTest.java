@@ -25,6 +25,7 @@ public class PartnerRepositoryTest extends StudyApplicationTests {
         LocalDateTime registeredAt = LocalDateTime.now();
         LocalDateTime createdAt = LocalDateTime.now();
         String createdBy = "AdminServer";
+        Long categoryId = 1L;
 
         Partner partner=  new Partner();
         partner.setName(name);
@@ -37,6 +38,7 @@ public class PartnerRepositoryTest extends StudyApplicationTests {
         partner.setRegisteredAt(registeredAt    );
         partner.setCreatedAt(createdAt);
         partner.setCreatedBy(createdBy);
+        partner.setCategoryId(categoryId);
 
         Partner newPartner = partnerRepository.save(partner);
         Assertions.assertNotNull(newPartner);

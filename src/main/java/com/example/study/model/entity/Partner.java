@@ -36,7 +36,7 @@ public class Partner {
 
     private LocalDateTime registeredAt;
 
-    private LocalDateTime registeredBy;
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
@@ -45,5 +45,7 @@ public class Partner {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long categoryId;
 
 }
