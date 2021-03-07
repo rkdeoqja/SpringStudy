@@ -31,7 +31,7 @@ public class Item {
 
     private LocalDateTime registeredAt;
 
-    private LocalDateTime unregisteredBy;
+    private LocalDateTime unregisteredAt;
 
     private LocalDateTime createdAt;
 
@@ -40,6 +40,8 @@ public class Item {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long partnerId;
 
 
     // 1 : N
