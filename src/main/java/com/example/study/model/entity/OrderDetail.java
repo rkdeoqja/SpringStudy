@@ -50,7 +50,7 @@ public class OrderDetail {
     @ManyToOne
     private Item item;
 
-//    OrderDetail N : 1 OrderGroup
+    //    OrderDetail N : 1 OrderGroup
     @ManyToOne
     private OrderGroup orderGroup;
 
