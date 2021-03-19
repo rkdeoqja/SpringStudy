@@ -29,12 +29,14 @@ public class OrderDetailApiController implements CrudInterface<OrderDetailApiReq
     }
 
     @Override
-    public Header<OrderDetailApiResponse> update(Header<OrderDetailApiRequest> request) {
-        return null;
+    @PutMapping("")
+    public Header<OrderDetailApiResponse> update(@RequestBody Header<OrderDetailApiRequest> request) {
+        return orderDetailApiLogicService.update(request);
     }
 
     @Override
-    public Header delete(Long id) {
-        return null;
+    @DeleteMapping("{id}")
+    public Header delete(@PathVariable Long id) {
+        return orderDetailApiLogicService.delete(id);
     }
 }
