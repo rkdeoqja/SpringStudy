@@ -24,14 +24,6 @@ public class OrderDetailApiRequest {
 
     private BigDecimal totalPrice;
 
-    private LocalDateTime createdAt;
-
-    private String createdBy;
-
-    private LocalDateTime updatedAt;
-
-    private String updatedBy;
-
     private Long itemId;
 
     private Long orderGroupId;
