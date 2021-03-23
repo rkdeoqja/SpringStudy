@@ -30,8 +30,8 @@ public class OrderGroup {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private OrderGroupStatus status;
+     @Enumerated(EnumType.STRING)
+     private OrderGroupStatus status;
 
     @Enumerated(EnumType.STRING)
     private OrderGroupOrderType orderType;   //주문의 형태 - 일괄 / 개별

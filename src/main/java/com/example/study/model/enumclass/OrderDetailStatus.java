@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum OrderGroupStatus {
+public enum OrderDetailStatus {
 
     ORDERING(0,"대기","배송 대기 상태"),
     COMPLETE(1,"완료","배송 완료 상태"),
