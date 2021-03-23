@@ -2,6 +2,7 @@ package com.example.study.controller.api;
 
 import com.example.study.controller.CrudController;
 import com.example.study.ifs.CrudInterface;
+import com.example.study.model.entity.User;
 import com.example.study.model.network.Header;
 import com.example.study.model.network.request.UserApiRequest;
 import com.example.study.model.network.response.UserApiResponse;
@@ -13,12 +14,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/api/user")
-public class UserApiController extends CrudController<UserApiRequest,UserApiResponse> {
-
-    @Autowired
-    private UserApiLogicService userApiLogicService;
-
-    public void init(){
-        this.baseService = userApiLogicService;
-    }
+public class UserApiController extends CrudController<UserApiRequest,UserApiResponse, User> {
+//
+//    @Autowired
+//    private UserApiLogicService userApiLogicService;
+//
+//    public void init(){
+//        this.baseService = userApiLogicService;
+//    }
 }

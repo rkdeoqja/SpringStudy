@@ -14,10 +14,10 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 
 @Service
-public class PartnerApiLogicService implements CrudInterface<PartnerApiRequest, PartnerApiResponse> {
+public class PartnerApiLogicService extends BaseService<PartnerApiRequest, PartnerApiResponse,Partner> {
 
-    @Autowired
-    PartnerRepository partnerRepository;
+//    @Autowired
+//    PartnerRepository partnerRepository;
 
     @Autowired
     CategoryRepository categoryRepository;
@@ -39,13 +39,15 @@ public class PartnerApiLogicService implements CrudInterface<PartnerApiRequest, 
                 .category(categoryRepository.getOne(body.getCategoryId()))
                 .build();
 
-        Partner newPartner = partnerRepository.save(partner);
+//        Partner newPartner = partnerRepository.save(partner);
+        Partner newPartner = baseRepository.save(partner);
         return response(newPartner);
     }
 
     @Override
     public Header<PartnerApiResponse> read(Long id) {
-        return partnerRepository.findById(id)
+//        return partnerRepository.findById(id)
+        return baseRepository.findById(id)
                 .map(partner -> response(partner))
                 .orElseGet(()->Header.ERROR("데이터 없음"));
     }
@@ -54,7 +56,8 @@ public class PartnerApiLogicService implements CrudInterface<PartnerApiRequest, 
     public Header<PartnerApiResponse> update(Header<PartnerApiRequest> request) {
         PartnerApiRequest body = request.getData();
 
-        return partnerRepository.findById(body.getId())
+//        return partnerRepository.findById(body.getId())
+        return baseRepository.findById(body.getId())
                 .map(partner -> {
                     partner.setName(body.getName())
                             .setStatus(body.getStatus())
@@ -67,15 +70,18 @@ public class PartnerApiLogicService implements CrudInterface<PartnerApiRequest, 
 
                     return partner;
                 })
-                .map(newPatner -> partnerRepository.save(newPatner))
+//                .map(newPatner -> partnerRepository.save(newPatner))
+                .map(newPatner -> baseRepository.save(newPatner))
                 .map(changePatner -> response(changePatner))
                 .orElseGet(()->Header.ERROR("데이터 없음"));
     }
 
     @Override
     public Header delete(Long id) {
-        return partnerRepository.findById(id)
-                .map(partner -> {partnerRepository.delete(partner);
+//        return partnerRepository.findById(id)
+//                .map(partner -> {partnerRepository.delete(partner);
+        return baseRepository.findById(id)
+                .map(partner -> {baseRepository.delete(partner);
                 return Header.OK();
                 })
                 .orElseGet(()->Header.ERROR("데이터 없음"));
