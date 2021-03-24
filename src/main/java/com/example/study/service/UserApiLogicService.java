@@ -1,6 +1,5 @@
 package com.example.study.service;
 
-import com.example.study.ifs.CrudInterface;
 import com.example.study.model.entity.OrderGroup;
 import com.example.study.model.entity.User;
 import com.example.study.model.enumclass.UserStatus;
@@ -26,13 +25,12 @@ import java.util.stream.Collectors;
 public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResponse,User> {
 
       @Autowired
-      private UserRepository userRepository;
-
-      @Autowired
       private OrderGroupApiLogicService orderGroupApiLogicService;
 
       @Autowired
       private ItemApiLogicService itemApiLogicService;
+
+
 
     //1.request data
     //2.user 생성
@@ -150,7 +148,7 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
 
     public Header<List<UserApiResponse>> search(Pageable pageable) {
 
-        Page<User> users = userRepository.findAll(pageable);
+        Page<User> users = baseRepository.findAll(pageable);
 
         List<UserApiResponse> userApiResponseList = users.stream()
                 .map(user -> response(user))
@@ -171,7 +169,7 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
     public Header<UserOrderInfoApiResponse> orderInfo(Long id){
 
         //user
-        User user = userRepository.getOne(id);
+        User user = baseRepository.getOne(id);
         UserApiResponse userApiResponse = response(user);
 
 
