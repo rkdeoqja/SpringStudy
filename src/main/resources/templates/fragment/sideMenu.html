@@ -7,6 +7,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <th:block th:each="entry : ${menuList}">
                 <li th:class="${entry.code == code ? 'active':''}">
+                    <!--/*@thymesVar id="url" type=""*/-->
                     <a th:href="${entry.url}">
                         <i class="fa fa-link"></i>
                         <span th:text="${entry.title}"></span>

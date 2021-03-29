@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @NoArgsConstructor
 @Builder
 @Accessors(chain = true)
-public class Pagenation {
+public class Pagination {
 
     private Integer totalPages;
     private Long totalElements;

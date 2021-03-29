@@ -34,12 +34,12 @@ public class GetController {
         return searchParam;//spring Boot에서는 jackson라이브러리를 이용하여  json으로 자동변환되어 리턴된다
     }
 
-    @GetMapping("/header")
+  /*  @GetMapping("/header")
     public Header getHeader(){
 
         //{"resultCode":"OK","description":"OK"}
         return  Header.builder().resultCode("OK").description("OK").build();
 
     }
-
+*/
 }

@@ -4,13 +4,12 @@ import com.example.study.model.entity.OrderGroup;
 import com.example.study.model.entity.User;
 import com.example.study.model.enumclass.UserStatus;
 import com.example.study.model.network.Header;
-import com.example.study.model.network.Pagenation;
+import com.example.study.model.network.Pagination;
 import com.example.study.model.network.request.UserApiRequest;
 import com.example.study.model.network.response.ItemApiResponse;
 import com.example.study.model.network.response.OrderGroupApiResponse;
 import com.example.study.model.network.response.UserApiResponse;
 import com.example.study.model.network.response.UserOrderInfoApiResponse;
-import com.example.study.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -156,14 +155,14 @@ public class UserApiLogicService extends BaseService<UserApiRequest, UserApiResp
         //List<UserApiResponse>
         //Header<List<UserApiResponse>>
 
-        Pagenation pagenation = Pagenation.builder()
+        Pagination pagination = Pagination.builder()
                 .totalPages(users.getTotalPages())
                 .totalElements(users.getTotalElements())
                 .currentPage(users.getNumber())
                 .currentElements(users.getNumberOfElements())
                 .build();
 
-        return Header.OK(userApiResponseList,pagenation);
+        return Header.OK(userApiResponseList, pagination);
     }
 
     public Header<UserOrderInfoApiResponse> orderInfo(Long id){
